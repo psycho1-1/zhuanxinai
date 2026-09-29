@@ -1,5 +1,7 @@
 # 砖芯 AI
 
+简体中文 | [English](README.en.md)
+
 网站源码仓库。线上网站：https://zhuanxinai.com ，目前部署在腾讯云 CloudBase；推送到 GitHub 不会自动更新线上服务。
 
 ## 当前版本
