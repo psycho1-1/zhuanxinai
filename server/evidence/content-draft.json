@@ -1,0 +1,923 @@
+{
+  "skills": [
+    {
+      "id": "signed-number-context",
+      "title": "正负数与参照量",
+      "observableTask": "根据明确的零点和正方向，用正数、负数或零表示数量。"
+    },
+    {
+      "id": "number-line",
+      "title": "数轴位置与单位长度",
+      "observableTask": "在给定原点、正方向和单位长度的数轴上读数、定位并解释刻度。"
+    },
+    {
+      "id": "opposite",
+      "title": "相反数",
+      "observableTask": "求正数、负数和零的相反数，并用对称位置或和为零解释。"
+    },
+    {
+      "id": "absolute",
+      "title": "绝对值与距离",
+      "observableTask": "区分有向位置与到零的距离，计算绝对值，并由距离和方向反求数。"
+    },
+    {
+      "id": "compare-negative",
+      "title": "负数大小比较",
+      "observableTask": "比较两个负数，并区分数的大小与绝对值的大小。"
+    },
+    {
+      "id": "addition-same",
+      "title": "同号有理数相加",
+      "observableTask": "分别确定同号加法的结果符号和绝对值，并联系数轴移动。"
+    },
+    {
+      "id": "addition-different",
+      "title": "异号有理数相加",
+      "observableTask": "通过抵消或数轴移动判断结果符号，计算绝对值之差，识别零对。"
+    },
+    {
+      "id": "subtraction",
+      "title": "减去一个有理数",
+      "observableTask": "保留被减数，把减法改写为加上减数的相反数，再完成计算。"
+    },
+    {
+      "id": "multiplication-division",
+      "title": "有理数乘除",
+      "observableTask": "区分结果符号和大小，识别除数不能为零，并使用逆运算检查。"
+    },
+    {
+      "id": "power-base",
+      "title": "乘方底数与负号范围",
+      "observableTask": "区分带括号的负数底数和幂外负号，按指数展开并计算。"
+    },
+    {
+      "id": "operation-order",
+      "title": "混合运算顺序",
+      "observableTask": "识别括号、乘方、乘除、加减的层次，逐步记录等值计算。"
+    }
+  ],
+  "items": [
+    {
+      "id": "zx-absolute-diagnostic-01",
+      "version": 1,
+      "topic": "absolute",
+      "skillId": "absolute",
+      "purpose": "diagnostic",
+      "familyId": "abs.direct-literal",
+      "prompt": "|−6| 的值是多少？",
+      "answer": 2,
+      "explanation": "−6 所表示的点到原点的距离是 6，所以 |−6|=6。",
+      "hint": "想一想：题目问的是位置，还是到零的距离？",
+      "errorMap": {
+        "1": "abs-distance-keeps-sign",
+        "3": "abs-negative-collapses-zero"
+      },
+      "options": [
+        "−6",
+        "6",
+        "0"
+      ]
+    },
+    {
+      "id": "zx-absolute-diagnostic-02",
+      "version": 1,
+      "topic": "absolute",
+      "skillId": "absolute",
+      "purpose": "diagnostic",
+      "familyId": "abs.absolute-opposite-pair",
+      "prompt": "依次填写：4 的绝对值、4 的相反数。",
+      "answer": 1,
+      "explanation": "4 到零的距离是 4；与 4 互为相反数的是 −4。",
+      "hint": "把“到零的距离”和“关于原点对称”分开想。",
+      "errorMap": {
+        "2": "abs-treated-as-opposite",
+        "3": "opposite-keeps-sign"
+      },
+      "options": [
+        "4，−4",
+        "−4，−4",
+        "4，4"
+      ]
+    },
+    {
+      "id": "zx-absolute-diagnostic-03",
+      "version": 1,
+      "topic": "absolute",
+      "skillId": "absolute",
+      "purpose": "diagnostic",
+      "familyId": "abs.origin-distance",
+      "prompt": "数轴向右为正，每小格表示 2。点 P 在原点左边第 3 个刻度上。P 到原点的距离是多少？",
+      "answer": 6,
+      "explanation": "每小格表示 2，跨过 3 小格的距离是 3×2=6。P 表示 −6，距离为 6。",
+      "hint": "先看每小格表示多少，再数原点与 P 之间的小格。",
+      "errorMap": {
+        "3": "numberline-unit-ignored",
+        "-6": "abs-distance-keeps-sign"
+      }
+    },
+    {
+      "id": "zx-absolute-practice-01",
+      "version": 1,
+      "topic": "absolute",
+      "skillId": "absolute",
+      "purpose": "practice",
+      "familyId": "abs.direct-literal",
+      "prompt": "计算 |−9|。",
+      "answer": 9,
+      "explanation": "−9 到零的距离是 9，所以 |−9|=9。",
+      "hint": "绝对值表示到零的距离。"
+    },
+    {
+      "id": "zx-absolute-practice-02",
+      "version": 1,
+      "topic": "absolute",
+      "skillId": "absolute",
+      "purpose": "practice",
+      "familyId": "abs.direct-literal",
+      "prompt": "计算 |7|。",
+      "answer": 7,
+      "explanation": "7 到零的距离是 7，正数的绝对值等于它本身。",
+      "hint": "绝对值与相反数是不同的概念。",
+      "errorMap": {
+        "-7": "abs-treated-as-opposite"
+      }
+    },
+    {
+      "id": "zx-absolute-practice-03",
+      "version": 1,
+      "topic": "absolute",
+      "skillId": "absolute",
+      "purpose": "practice",
+      "familyId": "abs.direct-literal",
+      "prompt": "计算 |0|。",
+      "answer": 0,
+      "explanation": "零到零的距离是零，所以 |0|=0。",
+      "hint": "起点和终点是同一点。"
+    },
+    {
+      "id": "zx-absolute-practice-04",
+      "version": 1,
+      "topic": "absolute",
+      "skillId": "absolute",
+      "purpose": "practice",
+      "familyId": "abs.outer-negative",
+      "prompt": "计算 −|−5|。",
+      "answer": -5,
+      "explanation": "先算 |−5|=5，再保留绝对值符号外的负号，得到 −5。",
+      "hint": "先处理绝对值符号里面，再处理外面的负号。",
+      "errorMap": {
+        "5": "abs-outer-sign-dropped"
+      }
+    },
+    {
+      "id": "zx-absolute-practice-05",
+      "version": 1,
+      "topic": "absolute",
+      "skillId": "absolute",
+      "purpose": "practice",
+      "familyId": "abs.inner-expression",
+      "prompt": "计算 |3−8|。",
+      "answer": 5,
+      "explanation": "先算 3−8=−5，再算 |−5|=5。",
+      "hint": "先算绝对值符号内的完整算式。",
+      "errorMap": {
+        "11": "abs-inner-signs-removed",
+        "-5": "abs-distance-keeps-sign"
+      }
+    },
+    {
+      "id": "zx-absolute-pretest-01",
+      "version": 1,
+      "topic": "absolute",
+      "skillId": "absolute",
+      "purpose": "pretest",
+      "familyId": "abs.direct-literal",
+      "prompt": "|−8| 等于多少？",
+      "answer": 8,
+      "explanation": "−8 到零的距离为 8。",
+      "hint": "想一想到零的距离。"
+    },
+    {
+      "id": "zx-absolute-pretest-02",
+      "version": 1,
+      "topic": "absolute",
+      "skillId": "absolute",
+      "purpose": "pretest",
+      "familyId": "abs.origin-distance",
+      "prompt": "数轴上的点 A 表示 −5。A 到原点的距离是多少？",
+      "answer": 5,
+      "explanation": "从 −5 到 0 的距离是 5 个单位长度。",
+      "hint": "区分位置和距离。"
+    },
+    {
+      "id": "zx-absolute-pretest-03",
+      "version": 1,
+      "topic": "absolute",
+      "skillId": "absolute",
+      "purpose": "pretest",
+      "familyId": "abs.inverse-signed",
+      "prompt": "一个负数的绝对值是 3。这个负数是多少？",
+      "answer": -3,
+      "explanation": "绝对值为 3 的数有 3 和 −3，其中负数是 −3。",
+      "hint": "先找距离，再看题目要求的正负。"
+    },
+    {
+      "id": "zx-absolute-pretest-04",
+      "version": 1,
+      "topic": "absolute",
+      "skillId": "absolute",
+      "purpose": "pretest",
+      "familyId": "abs.compare-magnitudes",
+      "prompt": "比较 |−4| 和 |7|，哪一种说法正确？",
+      "answer": 2,
+      "explanation": "|−4|=4，|7|=7，7 大于 4。",
+      "hint": "分别求出两个距离，再比较。",
+      "options": [
+        "|−4| 更大",
+        "|7| 更大",
+        "两者相等"
+      ]
+    },
+    {
+      "id": "zx-absolute-immediate-01",
+      "version": 1,
+      "topic": "absolute",
+      "skillId": "absolute",
+      "purpose": "immediate",
+      "familyId": "abs.direct-literal",
+      "prompt": "|−11| 等于多少？",
+      "answer": 11,
+      "explanation": "−11 到零的距离为 11。",
+      "hint": "想一想到零的距离。"
+    },
+    {
+      "id": "zx-absolute-immediate-02",
+      "version": 1,
+      "topic": "absolute",
+      "skillId": "absolute",
+      "purpose": "immediate",
+      "familyId": "abs.origin-distance",
+      "prompt": "数轴上的点 B 表示 −9。B 到原点的距离是多少？",
+      "answer": 9,
+      "explanation": "从 −9 到 0 的距离是 9 个单位长度。",
+      "hint": "区分位置和距离。"
+    },
+    {
+      "id": "zx-absolute-immediate-03",
+      "version": 1,
+      "topic": "absolute",
+      "skillId": "absolute",
+      "purpose": "immediate",
+      "familyId": "abs.inverse-signed",
+      "prompt": "一个负数的绝对值是 6。这个负数是多少？",
+      "answer": -6,
+      "explanation": "绝对值为 6 的数有 6 和 −6，其中负数是 −6。",
+      "hint": "先找距离，再看题目要求的正负。"
+    },
+    {
+      "id": "zx-absolute-immediate-04",
+      "version": 1,
+      "topic": "absolute",
+      "skillId": "absolute",
+      "purpose": "immediate",
+      "familyId": "abs.compare-magnitudes",
+      "prompt": "比较 |−8| 和 |5|，哪一种说法正确？",
+      "answer": 1,
+      "explanation": "|−8|=8，|5|=5，8 大于 5。",
+      "hint": "分别求出两个距离，再比较。",
+      "options": [
+        "|−8| 更大",
+        "|5| 更大",
+        "两者相等"
+      ]
+    },
+    {
+      "id": "zx-absolute-delayed-01",
+      "version": 1,
+      "topic": "absolute",
+      "skillId": "absolute",
+      "purpose": "delayed",
+      "familyId": "abs.direct-literal",
+      "prompt": "|−13| 等于多少？",
+      "answer": 13,
+      "explanation": "−13 到零的距离为 13。",
+      "hint": "想一想到零的距离。"
+    },
+    {
+      "id": "zx-absolute-delayed-02",
+      "version": 1,
+      "topic": "absolute",
+      "skillId": "absolute",
+      "purpose": "delayed",
+      "familyId": "abs.origin-distance",
+      "prompt": "数轴上的点 C 表示 −7。C 到原点的距离是多少？",
+      "answer": 7,
+      "explanation": "从 −7 到 0 的距离是 7 个单位长度。",
+      "hint": "区分位置和距离。"
+    },
+    {
+      "id": "zx-absolute-delayed-03",
+      "version": 1,
+      "topic": "absolute",
+      "skillId": "absolute",
+      "purpose": "delayed",
+      "familyId": "abs.inverse-signed",
+      "prompt": "一个负数的绝对值是 4。这个负数是多少？",
+      "answer": -4,
+      "explanation": "绝对值为 4 的数有 4 和 −4，其中负数是 −4。",
+      "hint": "先找距离，再看题目要求的正负。"
+    },
+    {
+      "id": "zx-absolute-delayed-04",
+      "version": 1,
+      "topic": "absolute",
+      "skillId": "absolute",
+      "purpose": "delayed",
+      "familyId": "abs.compare-magnitudes",
+      "prompt": "比较 |−3| 和 |−10|，哪一种说法正确？",
+      "answer": 2,
+      "explanation": "|−3|=3，|−10|=10，10 大于 3。",
+      "hint": "分别求出两个距离，再比较。",
+      "options": [
+        "|−3| 更大",
+        "|−10| 更大",
+        "两者相等"
+      ]
+    },
+    {
+      "id": "zx-addition-diagnostic-01",
+      "version": 1,
+      "topic": "addition",
+      "skillId": "addition-different",
+      "purpose": "diagnostic",
+      "familyId": "add.direct-mixed",
+      "prompt": "计算 (−7)+4。",
+      "answer": 2,
+      "explanation": "7 个负单位与 4 个正单位抵消后，剩下 3 个负单位，结果为 −3。",
+      "hint": "先比较两个数的绝对值，再判断剩下的是正还是负。",
+      "errorMap": {
+        "1": "add-magnitudes-then-negative",
+        "3": "add-result-forced-positive",
+        "4": "add-signs-ignored"
+      },
+      "options": [
+        "−11",
+        "−3",
+        "3",
+        "11"
+      ]
+    },
+    {
+      "id": "zx-addition-diagnostic-02",
+      "version": 1,
+      "topic": "addition",
+      "skillId": "addition-different",
+      "purpose": "diagnostic",
+      "familyId": "add.direct-mixed",
+      "prompt": "计算 7+(−4)。",
+      "answer": 3,
+      "explanation": "7 个正单位与 4 个负单位抵消后，剩下 3 个正单位，结果为 3。",
+      "hint": "哪一种单位抵消后还有剩余？",
+      "errorMap": {
+        "11": "add-signs-ignored",
+        "-3": "add-result-always-negative",
+        "-11": "add-magnitudes-then-negative"
+      }
+    },
+    {
+      "id": "zx-addition-diagnostic-03",
+      "version": 1,
+      "topic": "addition",
+      "skillId": "addition-different",
+      "purpose": "diagnostic",
+      "familyId": "add.numberline-action",
+      "prompt": "数轴向右为正。从 −2 出发，向右移动 5 个单位。哪个算式表示这次移动？",
+      "answer": 1,
+      "explanation": "向右移动 5 个单位表示加 5，从 −2 经过 0 到达 3。",
+      "hint": "分别确认起点、移动方向和步数。",
+      "errorMap": {
+        "2": "add-positive-moves-left",
+        "3": "add-right-move-as-subtraction"
+      },
+      "options": [
+        "(−2)+5=3",
+        "(−2)+5=−7",
+        "(−2)−5=−7"
+      ]
+    },
+    {
+      "id": "zx-addition-practice-01",
+      "version": 1,
+      "topic": "addition",
+      "skillId": "addition-different",
+      "purpose": "practice",
+      "familyId": "add.direct-mixed",
+      "prompt": "计算 (−9)+4。",
+      "answer": -5,
+      "explanation": "绝对值之差为 9−4=5，绝对值较大的数是 −9，所以结果是 −5。",
+      "hint": "判断抵消后剩下哪一类单位。"
+    },
+    {
+      "id": "zx-addition-practice-02",
+      "version": 1,
+      "topic": "addition",
+      "skillId": "addition-different",
+      "purpose": "practice",
+      "familyId": "add.direct-mixed",
+      "prompt": "计算 6+(−9)。",
+      "answer": -3,
+      "explanation": "9−6=3，负单位更多，因此结果为 −3。",
+      "hint": "先比较 6 和 9。"
+    },
+    {
+      "id": "zx-addition-practice-03",
+      "version": 1,
+      "topic": "addition",
+      "skillId": "addition-different",
+      "purpose": "practice",
+      "familyId": "add.direct-mixed",
+      "prompt": "计算 (−4)+7。",
+      "answer": 3,
+      "explanation": "7−4=3，正单位更多，因此结果为 3。",
+      "hint": "这次是正单位更多，还是负单位更多？"
+    },
+    {
+      "id": "zx-addition-practice-04",
+      "version": 1,
+      "topic": "addition",
+      "skillId": "addition-different",
+      "purpose": "practice",
+      "familyId": "add.direct-mixed",
+      "prompt": "计算 12+(−5)。",
+      "answer": 7,
+      "explanation": "12−5=7，正单位更多，因此结果为 7。",
+      "hint": "计算抵消后的剩余数量。"
+    },
+    {
+      "id": "zx-addition-practice-05",
+      "version": 1,
+      "topic": "addition",
+      "skillId": "addition-different",
+      "purpose": "practice",
+      "familyId": "add.zero-pair",
+      "prompt": "计算 (−5)+5。",
+      "answer": 0,
+      "explanation": "5 个负单位和 5 个正单位全部抵消，和为零。",
+      "hint": "互为相反数的两个数相加，结果是什么？"
+    },
+    {
+      "id": "zx-addition-pretest-01",
+      "version": 1,
+      "topic": "addition",
+      "skillId": "addition-different",
+      "purpose": "pretest",
+      "familyId": "add.direct-mixed",
+      "prompt": "计算 (−8)+3。",
+      "answer": -5,
+      "explanation": "8−3=5，负单位更多，所以结果为 −5。",
+      "hint": "分别确定结果的符号和大小。"
+    },
+    {
+      "id": "zx-addition-pretest-02",
+      "version": 1,
+      "topic": "addition",
+      "skillId": "addition-different",
+      "purpose": "pretest",
+      "familyId": "add.numberline-action",
+      "prompt": "数轴向右为正。从 −3 出发，向右移动 7 个单位，最后到达的数是多少？",
+      "answer": 4,
+      "explanation": "从 −3 向右移动 3 个单位到 0，再移动 4 个单位到 4。",
+      "hint": "移动方向由正方向说明决定。"
+    },
+    {
+      "id": "zx-addition-pretest-03",
+      "version": 1,
+      "topic": "addition",
+      "skillId": "addition-different",
+      "purpose": "pretest",
+      "familyId": "add.missing-addend",
+      "prompt": "在空格中填数：□+(−5)=2。",
+      "answer": 7,
+      "explanation": "需要一个数与 −5 相加得到 2；7+(−5)=2，所以填 7。",
+      "hint": "可以用加法检查填入的数。"
+    },
+    {
+      "id": "zx-addition-pretest-04",
+      "version": 1,
+      "topic": "addition",
+      "skillId": "addition-different",
+      "purpose": "pretest",
+      "familyId": "add.context-net-change",
+      "prompt": "某地早晨气温是 −4℃，中午升高了 9℃。中午气温是多少摄氏度？",
+      "answer": 5,
+      "explanation": "升高 9℃ 对应加 9，−4+9=5，所以中午为 5℃。",
+      "hint": "把起始气温和温度变化写成加法。"
+    },
+    {
+      "id": "zx-addition-immediate-01",
+      "version": 1,
+      "topic": "addition",
+      "skillId": "addition-different",
+      "purpose": "immediate",
+      "familyId": "add.direct-mixed",
+      "prompt": "计算 (−11)+6。",
+      "answer": -5,
+      "explanation": "11−6=5，负单位更多，所以结果为 −5。",
+      "hint": "分别确定结果的符号和大小。"
+    },
+    {
+      "id": "zx-addition-immediate-02",
+      "version": 1,
+      "topic": "addition",
+      "skillId": "addition-different",
+      "purpose": "immediate",
+      "familyId": "add.numberline-action",
+      "prompt": "数轴向右为正。从 −5 出发，向右移动 8 个单位，最后到达的数是多少？",
+      "answer": 3,
+      "explanation": "从 −5 向右移动 5 个单位到 0，再移动 3 个单位到 3。",
+      "hint": "移动方向由正方向说明决定。"
+    },
+    {
+      "id": "zx-addition-immediate-03",
+      "version": 1,
+      "topic": "addition",
+      "skillId": "addition-different",
+      "purpose": "immediate",
+      "familyId": "add.missing-addend",
+      "prompt": "在空格中填数：□+(−7)=3。",
+      "answer": 10,
+      "explanation": "10+(−7)=3，所以填 10。",
+      "hint": "可以用加法检查填入的数。"
+    },
+    {
+      "id": "zx-addition-immediate-04",
+      "version": 1,
+      "topic": "addition",
+      "skillId": "addition-different",
+      "purpose": "immediate",
+      "familyId": "add.context-net-change",
+      "prompt": "某地早晨气温是 −6℃，中午升高了 10℃。中午气温是多少摄氏度？",
+      "answer": 4,
+      "explanation": "升高 10℃ 对应加 10，−6+10=4，所以中午为 4℃。",
+      "hint": "把起始气温和温度变化写成加法。"
+    },
+    {
+      "id": "zx-addition-delayed-01",
+      "version": 1,
+      "topic": "addition",
+      "skillId": "addition-different",
+      "purpose": "delayed",
+      "familyId": "add.direct-mixed",
+      "prompt": "计算 (−10)+7。",
+      "answer": -3,
+      "explanation": "10−7=3，负单位更多，所以结果为 −3。",
+      "hint": "分别确定结果的符号和大小。"
+    },
+    {
+      "id": "zx-addition-delayed-02",
+      "version": 1,
+      "topic": "addition",
+      "skillId": "addition-different",
+      "purpose": "delayed",
+      "familyId": "add.numberline-action",
+      "prompt": "数轴向右为正。从 −6 出发，向右移动 11 个单位，最后到达的数是多少？",
+      "answer": 5,
+      "explanation": "从 −6 向右移动 6 个单位到 0，再移动 5 个单位到 5。",
+      "hint": "移动方向由正方向说明决定。"
+    },
+    {
+      "id": "zx-addition-delayed-03",
+      "version": 1,
+      "topic": "addition",
+      "skillId": "addition-different",
+      "purpose": "delayed",
+      "familyId": "add.missing-addend",
+      "prompt": "在空格中填数：□+(−8)=4。",
+      "answer": 12,
+      "explanation": "12+(−8)=4，所以填 12。",
+      "hint": "可以用加法检查填入的数。"
+    },
+    {
+      "id": "zx-addition-delayed-04",
+      "version": 1,
+      "topic": "addition",
+      "skillId": "addition-different",
+      "purpose": "delayed",
+      "familyId": "add.context-net-change",
+      "prompt": "某地早晨气温是 −7℃，中午升高了 9℃。中午气温是多少摄氏度？",
+      "answer": 2,
+      "explanation": "升高 9℃ 对应加 9，−7+9=2，所以中午为 2℃。",
+      "hint": "把起始气温和温度变化写成加法。"
+    },
+    {
+      "id": "zx-subtraction-diagnostic-01",
+      "version": 1,
+      "topic": "subtraction",
+      "skillId": "subtraction",
+      "purpose": "diagnostic",
+      "familyId": "sub.direct-negative",
+      "prompt": "计算 3−(−5)。",
+      "answer": 2,
+      "explanation": "减去 −5 等于加上它的相反数 5，3−(−5)=3+5=8。",
+      "hint": "减法改写时，被减数不变。",
+      "errorMap": {
+        "1": "sub-negative-treated-positive",
+        "3": "sub-minus-applied-to-entire-sum"
+      },
+      "options": [
+        "−2",
+        "8",
+        "−8"
+      ]
+    },
+    {
+      "id": "zx-subtraction-diagnostic-02",
+      "version": 1,
+      "topic": "subtraction",
+      "skillId": "subtraction",
+      "purpose": "diagnostic",
+      "familyId": "sub.rewrite-choice",
+      "prompt": "把 (−4)−(−7) 改写为加法，哪一项正确？",
+      "answer": 1,
+      "explanation": "保留 −4，把减去 −7 改为加上 7。",
+      "hint": "只把减数换成它的相反数。",
+      "errorMap": {
+        "2": "sub-both-numbers-sign-changed",
+        "3": "sub-subtrahend-not-opposed"
+      },
+      "options": [
+        "(−4)+7",
+        "4+7",
+        "(−4)+(−7)"
+      ]
+    },
+    {
+      "id": "zx-subtraction-diagnostic-03",
+      "version": 1,
+      "topic": "subtraction",
+      "skillId": "subtraction",
+      "purpose": "diagnostic",
+      "familyId": "sub.rewrite-given-calculation",
+      "prompt": "(−4)−(−7) 已正确改写为 (−4)+7。计算这个加法。",
+      "answer": 3,
+      "explanation": "7 个正单位与 4 个负单位抵消后，剩下 3 个正单位。",
+      "hint": "改写已经完成，这一步只判断加法的结果。",
+      "errorMap": {
+        "11": "add-signs-ignored",
+        "-3": "add-result-always-negative",
+        "-11": "add-magnitudes-then-negative"
+      }
+    },
+    {
+      "id": "zx-subtraction-practice-01",
+      "version": 1,
+      "topic": "subtraction",
+      "skillId": "subtraction",
+      "purpose": "practice",
+      "familyId": "sub.direct-negative",
+      "prompt": "计算 8−(−3)。",
+      "answer": 11,
+      "explanation": "8−(−3)=8+3=11。",
+      "hint": "保留 8，把减去 −3 改为加上 3。"
+    },
+    {
+      "id": "zx-subtraction-practice-02",
+      "version": 1,
+      "topic": "subtraction",
+      "skillId": "subtraction",
+      "purpose": "practice",
+      "familyId": "sub.direct-negative",
+      "prompt": "计算 (−6)−(−2)。",
+      "answer": -4,
+      "explanation": "(−6)−(−2)=(−6)+2=−4。",
+      "hint": "改写后再判断异号加法的结果。"
+    },
+    {
+      "id": "zx-subtraction-practice-03",
+      "version": 1,
+      "topic": "subtraction",
+      "skillId": "subtraction",
+      "purpose": "practice",
+      "familyId": "sub.direct-positive",
+      "prompt": "计算 (−2)−5。",
+      "answer": -7,
+      "explanation": "(−2)−5=(−2)+(−5)=−7。",
+      "hint": "减去正数 5，等于加上 −5。"
+    },
+    {
+      "id": "zx-subtraction-practice-04",
+      "version": 1,
+      "topic": "subtraction",
+      "skillId": "subtraction",
+      "purpose": "practice",
+      "familyId": "sub.rewrite-choice",
+      "prompt": "把 6−(−4) 改写为加法，哪一项正确？",
+      "answer": 1,
+      "explanation": "被减数 6 不变，−4 的相反数是 4，因此改写为 6+4。",
+      "hint": "改变的是运算符号和减数。",
+      "options": [
+        "6+4",
+        "(−6)+4",
+        "6+(−4)"
+      ]
+    },
+    {
+      "id": "zx-subtraction-practice-05",
+      "version": 1,
+      "topic": "subtraction",
+      "skillId": "subtraction",
+      "purpose": "practice",
+      "familyId": "sub.same-number",
+      "prompt": "计算 (−9)−(−9)。",
+      "answer": 0,
+      "explanation": "(−9)−(−9)=(−9)+9=0；一个数减去它本身等于零。",
+      "hint": "改写后出现一对什么数？"
+    },
+    {
+      "id": "zx-subtraction-pretest-01",
+      "version": 1,
+      "topic": "subtraction",
+      "skillId": "subtraction",
+      "purpose": "pretest",
+      "familyId": "sub.direct-negative",
+      "prompt": "计算 2−(−4)。",
+      "answer": 6,
+      "explanation": "2−(−4)=2+4=6。",
+      "hint": "先改写为加法。"
+    },
+    {
+      "id": "zx-subtraction-pretest-02",
+      "version": 1,
+      "topic": "subtraction",
+      "skillId": "subtraction",
+      "purpose": "pretest",
+      "familyId": "sub.rewrite-choice",
+      "prompt": "把 (−3)−(−8) 改写为加法，哪一项正确？",
+      "answer": 1,
+      "explanation": "−3 不变，−8 的相反数是 8，因此改写为 (−3)+8。",
+      "hint": "只把减数换成它的相反数。",
+      "options": [
+        "(−3)+8",
+        "3+8",
+        "(−3)+(−8)"
+      ]
+    },
+    {
+      "id": "zx-subtraction-pretest-03",
+      "version": 1,
+      "topic": "subtraction",
+      "skillId": "subtraction",
+      "purpose": "pretest",
+      "familyId": "sub.missing-subtrahend",
+      "prompt": "在空格中填数：5−□=9。",
+      "answer": -4,
+      "explanation": "5−(−4)=5+4=9，所以填 −4。",
+      "hint": "填入后把减法改写为加法检查。"
+    },
+    {
+      "id": "zx-subtraction-pretest-04",
+      "version": 1,
+      "topic": "subtraction",
+      "skillId": "subtraction",
+      "purpose": "pretest",
+      "familyId": "sub.context-difference",
+      "prompt": "气温从 −6℃ 变为 2℃。气温升高了多少摄氏度？",
+      "answer": 8,
+      "explanation": "变化量是后来的气温减去原来的气温，2−(−6)=8，所以升高 8℃。",
+      "hint": "用后来气温减去原来气温。"
+    },
+    {
+      "id": "zx-subtraction-immediate-01",
+      "version": 1,
+      "topic": "subtraction",
+      "skillId": "subtraction",
+      "purpose": "immediate",
+      "familyId": "sub.direct-negative",
+      "prompt": "计算 (−5)−(−9)。",
+      "answer": 4,
+      "explanation": "(−5)−(−9)=(−5)+9=4。",
+      "hint": "先改写为加法。"
+    },
+    {
+      "id": "zx-subtraction-immediate-02",
+      "version": 1,
+      "topic": "subtraction",
+      "skillId": "subtraction",
+      "purpose": "immediate",
+      "familyId": "sub.rewrite-choice",
+      "prompt": "把 7−(−2) 改写为加法，哪一项正确？",
+      "answer": 2,
+      "explanation": "7 不变，−2 的相反数是 2，因此改写为 7+2。",
+      "hint": "只把减数换成它的相反数。",
+      "options": [
+        "(−7)+2",
+        "7+2",
+        "7+(−2)"
+      ]
+    },
+    {
+      "id": "zx-subtraction-immediate-03",
+      "version": 1,
+      "topic": "subtraction",
+      "skillId": "subtraction",
+      "purpose": "immediate",
+      "familyId": "sub.missing-subtrahend",
+      "prompt": "在空格中填数：3−□=8。",
+      "answer": -5,
+      "explanation": "3−(−5)=3+5=8，所以填 −5。",
+      "hint": "填入后把减法改写为加法检查。"
+    },
+    {
+      "id": "zx-subtraction-immediate-04",
+      "version": 1,
+      "topic": "subtraction",
+      "skillId": "subtraction",
+      "purpose": "immediate",
+      "familyId": "sub.context-difference",
+      "prompt": "气温从 −4℃ 变为 5℃。气温升高了多少摄氏度？",
+      "answer": 9,
+      "explanation": "变化量是后来的气温减去原来的气温，5−(−4)=9，所以升高 9℃。",
+      "hint": "用后来气温减去原来气温。"
+    },
+    {
+      "id": "zx-subtraction-delayed-01",
+      "version": 1,
+      "topic": "subtraction",
+      "skillId": "subtraction",
+      "purpose": "delayed",
+      "familyId": "sub.direct-negative",
+      "prompt": "计算 (−8)−(−3)。",
+      "answer": -5,
+      "explanation": "(−8)−(−3)=(−8)+3=−5。",
+      "hint": "先改写为加法。"
+    },
+    {
+      "id": "zx-subtraction-delayed-02",
+      "version": 1,
+      "topic": "subtraction",
+      "skillId": "subtraction",
+      "purpose": "delayed",
+      "familyId": "sub.rewrite-choice",
+      "prompt": "把 (−6)−(−1) 改写为加法，哪一项正确？",
+      "answer": 3,
+      "explanation": "−6 不变，−1 的相反数是 1，因此改写为 (−6)+1。",
+      "hint": "只把减数换成它的相反数。",
+      "options": [
+        "6+1",
+        "(−6)+(−1)",
+        "(−6)+1"
+      ]
+    },
+    {
+      "id": "zx-subtraction-delayed-03",
+      "version": 1,
+      "topic": "subtraction",
+      "skillId": "subtraction",
+      "purpose": "delayed",
+      "familyId": "sub.missing-subtrahend",
+      "prompt": "在空格中填数：−2−□=4。",
+      "answer": -6,
+      "explanation": "−2−(−6)=−2+6=4，所以填 −6。",
+      "hint": "填入后把减法改写为加法检查。"
+    },
+    {
+      "id": "zx-subtraction-delayed-04",
+      "version": 1,
+      "topic": "subtraction",
+      "skillId": "subtraction",
+      "purpose": "delayed",
+      "familyId": "sub.context-difference",
+      "prompt": "气温从 −7℃ 变为 1℃。气温升高了多少摄氏度？",
+      "answer": 8,
+      "explanation": "变化量是后来的气温减去原来的气温，1−(−7)=8，所以升高 8℃。",
+      "hint": "用后来气温减去原来气温。"
+    }
+  ],
+  "interventions": [
+    {
+      "topic": "absolute",
+      "id": "zx-absolute-intervention-01",
+      "title": "把位置、距离和相反数分开",
+      "text": "数轴上 −2 位于零的左边，到零的距离是 2，所以 |−2|=2。2 的绝对值也是 2，2 的相反数才是 −2。零到自己的距离是零。先说清题目问的是位置、距离，还是相反数。",
+      "alternateText": "在数轴上同时标出 −2、0、2。−2 与 2 在原点两侧，到原点的距离相同。请先指出两个位置，再用手指描出各自到零的路程；路程长度不带方向。若刻度每小格表示 2，跨 3 小格的距离就是 6。"
+    },
+    {
+      "topic": "addition",
+      "id": "zx-addition-intervention-01",
+      "title": "先抵消，再看剩下什么",
+      "text": "计算 (−8)+5：8 个负单位与 5 个正单位配对抵消，剩下 3 个负单位，结果是 −3。计算 8+(−5)：剩下 3 个正单位，结果是 3。结果符号由抵消后剩下的单位决定。",
+      "alternateText": "用数轴看 (−8)+5：从 −8 向右移动 5 个单位，到达 −3。再看 8+(−5)：从 8 向左移动 5 个单位，到达 3。加正数向右，加负数向左；起点可以在零的任意一侧。"
+    },
+    {
+      "topic": "subtraction",
+      "id": "zx-subtraction-intervention-01",
+      "title": "保留被减数，改写减数",
+      "text": "计算 4−(−3)：保留 4，把减法改成加法，把 −3 换成相反数 3，得到 4+3=7。计算 (−5)−(−2)：先写 (−5)+2，再算得 −3。改写和计算是两个步骤。",
+      "alternateText": "用逆运算检查：若 4−(−3)=7，那么 7+(−3) 应该回到 4，确实如此。若写成 1，1+(−3)=−2，回不到 4。每一步先指出被减数与减数，再检查“结果加减数是否等于被减数”。"
+    }
+  ],
+  "review": {
+    "status": "draft",
+    "reviewedBy": []
+  }
+}

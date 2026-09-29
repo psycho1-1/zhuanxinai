@@ -1,0 +1,7 @@
+{
+  "envId": "zhixu-math-test-d2fi7r0hc6ae5fdb",
+  "$schema": "https://static.cloudbase.net/cli/cloudbaserc.schema.json",
+  "cloudrun": {
+    "name": "zhixu-math"
+  }
+}

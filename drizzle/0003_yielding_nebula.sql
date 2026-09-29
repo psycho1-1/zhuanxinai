@@ -1,0 +1,1 @@
+ALTER TABLE `evidence_profiles` ADD `legacy_through` integer DEFAULT 0 NOT NULL;

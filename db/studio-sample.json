@@ -1,0 +1,108 @@
+{
+  "title": "绝对值 · 样板课（待录制）",
+  "description": "五段式样板草稿。视频尚未上传，请按自己的教学设计修改后发布。",
+  "coverId": "",
+  "chapters": [
+    {
+      "id": "ac4c31e4-299b-4974-a28a-8fdef24c0bd6",
+      "title": "有理数",
+      "lessons": [
+        {
+          "id": "4df27234-aada-4d59-b34e-674165e8e9eb",
+          "title": "绝对值",
+          "segments": [
+            {
+              "id": "92042735-fa76-41ef-8734-2194c5205e7f",
+              "title": "绝对值表示什么",
+              "goal": "绝对值表示数轴上的点到原点的距离。距离不能是负数。",
+              "notes": "绝对值表示数轴上的点到原点的距离。距离不能是负数。",
+              "misconceptions": "注意区分位置、方向与距离。",
+              "guidance": "每次给一个简短提示，鼓励学生用数轴说明理由。",
+              "videoId": "",
+              "videoRequired": true,
+              "allowSkip": true,
+              "completion": "submit",
+              "questions": [
+                {
+                  "id": "43303e03-153b-4fea-b723-6253e08bb57b",
+                  "type": "choice",
+                  "prompt": "−3 的绝对值是多少？",
+                  "options": [
+                    "−3",
+                    "3",
+                    "0"
+                  ],
+                  "answer": "2",
+                  "explanation": "−3 到原点的距离是 3 个单位。",
+                  "rubric": ""
+                }
+              ]
+            },
+            {
+              "id": "19346d1b-379e-4307-869c-7dc0ae295530",
+              "title": "在数轴上理解距离",
+              "goal": "表示 −3 的点距离原点 3 个单位，因此 |−3|=3。",
+              "notes": "表示 −3 的点距离原点 3 个单位，因此 |−3|=3。",
+              "misconceptions": "注意区分位置、方向与距离。",
+              "guidance": "每次给一个简短提示，鼓励学生用数轴说明理由。",
+              "videoId": "",
+              "videoRequired": true,
+              "allowSkip": true,
+              "completion": "submit",
+              "questions": []
+            },
+            {
+              "id": "2a3342a1-62eb-4d78-874a-45980b6643eb",
+              "title": "正数、负数与零的绝对值",
+              "goal": "正数的绝对值是它本身；负数的绝对值是它的相反数；0 的绝对值是 0。",
+              "notes": "正数的绝对值是它本身；负数的绝对值是它的相反数；0 的绝对值是 0。",
+              "misconceptions": "注意区分位置、方向与距离。",
+              "guidance": "每次给一个简短提示，鼓励学生用数轴说明理由。",
+              "videoId": "",
+              "videoRequired": true,
+              "allowSkip": true,
+              "completion": "submit",
+              "questions": []
+            },
+            {
+              "id": "2ed8e55d-7bc5-43d2-8306-4f3f6b8d86a4",
+              "title": "用绝对值比较大小",
+              "goal": "两个负数比较大小，绝对值大的反而小。",
+              "notes": "两个负数比较大小，绝对值大的反而小。",
+              "misconceptions": "注意区分位置、方向与距离。",
+              "guidance": "每次给一个简短提示，鼓励学生用数轴说明理由。",
+              "videoId": "",
+              "videoRequired": true,
+              "allowSkip": true,
+              "completion": "submit",
+              "questions": []
+            },
+            {
+              "id": "10ecd383-f8c6-400f-b504-0aaccc4d014d",
+              "title": "回顾与综合练习",
+              "goal": "先辨认数的正负，再根据绝对值的意义计算。",
+              "notes": "先辨认数的正负，再根据绝对值的意义计算。",
+              "misconceptions": "注意区分位置、方向与距离。",
+              "guidance": "每次给一个简短提示，鼓励学生用数轴说明理由。",
+              "videoId": "",
+              "videoRequired": true,
+              "allowSkip": true,
+              "completion": "submit",
+              "questions": [
+                {
+                  "id": "47bbe3cb-a19d-4421-8a8d-26f223934096",
+                  "type": "short",
+                  "prompt": "为什么 −4 和 4 的绝对值相同？",
+                  "options": [],
+                  "answer": "它们在原点两侧，但到原点的距离都是 4 个单位。",
+                  "explanation": "方向不同不会改变到原点的距离。",
+                  "rubric": "说明到原点的距离均为4；仅写结果时请引导解释理由。"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1788938388586,
+      "tag": "0000_classy_carmella_unuscione",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1789017543059,
+      "tag": "0001_huge_drax",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1789059979456,
+      "tag": "0002_volatile_songbird",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1789060449459,
+      "tag": "0003_yielding_nebula",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1789107599626,
+      "tag": "0004_lively_queen_noir",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1789446999322,
+      "tag": "0005_course_tutor",
+      "breakpoints": true
+    }
+  ]
+}
